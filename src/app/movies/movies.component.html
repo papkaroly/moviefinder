@@ -1,0 +1,38 @@
+<!--<div style="text-align: center">
+<h1>Welcome to {{ title }}</h1>
+<h1 [innerText]="title"></h1>
+</div>
+
+<h1>Movie's details: </h1>
+<div><span>id: </span>{{ movie.id}}</div>
+<div><span>name: </span>{{ movie.name}}</div>
+<div><span>ReleaseYear: </span>{{ movie.ReleaseYear}}</div>
+
+<h2>Edit yout information:</h2>
+<div style="margin: 10px; text-align: left">
+  <label> Movie name:
+    <input [ngModel]="movie.name" placeholder="Enter your movie's name">
+  </label>
+
+</div>
+<div style="margin: 10px; text-align: left">
+    <label> Release year:
+      <input [(ngModel)]="movie.releaseYear" placeholder="Enter your movie's release year">
+    </label>
+  
+</div> -->
+
+<h2>My favorite movies</h2>
+<div class="parent">
+  <ol class="movies">
+    <li class="movieListItem"
+      *ngFor = "let i of movies"
+      [class.selected]="i === selectedMovie"
+      (click)="onSelect(i)"
+    >
+      {{i.name}} = {{ i.releaseYear }}
+    </li>
+  </ol>
+  <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
+</div>
+
